@@ -14,7 +14,7 @@ func resetDB() {
 
 func TestCreateCar(t *testing.T) {
   resetDB()
-  body := []byte({"brand":"Toyota", "model":"Camry", "year":2020, "price":25000})
+  body := []byte(`{"brand":"Toyota", "model":"Camry", "year":2020, "price":25000}`)
   req := httptest.NewRequest(http.MethodPost, "/cars", bytes.NewBuffer(body))
   w := httptest.NewRecorder()
 
@@ -27,7 +27,7 @@ func TestCreateCar(t *testing.T) {
 
 func TestCreateCar_ValidationError(t *testing.T) {
   resetDB()
-  body := []byte({"brand":"Toyota", "model":"Camry", "year":1800, "price":25000})
+  body := []byte(`{"brand":"Toyota", "model":"Camry", "year":1800, "price":25000}`)
   req := httptest.NewRequest(http.MethodPost, "/cars", bytes.NewBuffer(body))
   w := httptest.NewRecorder()
 

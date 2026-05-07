@@ -27,7 +27,7 @@ func (c *Car) Validate() error {
 }
 
 var (
-	cars  = make(map[string]Book)
+	cars  = make(map[string]Car)
 	nextID = 1
 	mu     sync.Mutex
 )
